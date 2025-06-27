@@ -7,11 +7,12 @@ st.set_page_config(page_title="Child Portfolio Generator", layout="centered")
 
 st.title("📚 Monthly Learning Portfolio Generator")
 
-uploaded_file = st.file_uploader("Upload Excel File", type=["xlsx"])
+# Direct download URL from Google Drive
+drive_url = "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_HERE"
 
-if uploaded_file:
+if drive_url:
     # Load data
-    may_df, june_df, desc_df = load_data(uploaded_file)
+    may_df, june_df, desc_df = load_data(drive_url)
 
     # Enter child's unique id to select child
     child_id_input = st.text_input("Enter the Child ID to generate the portfolio")
