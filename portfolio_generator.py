@@ -2,7 +2,10 @@ import pandas as pd
 from docx import Document
 import os
 
-def load_data(excel_file):
+def load_data(drive_file_url):
+	response = requests.get(drive_file_url)
+    excel_data = BytesIO(response.content)
+
     may_df = pd.read_excel(excel_file, sheet_name='May')
     june_df = pd.read_excel(excel_file, sheet_name='June')
     desc_df = pd.read_excel(excel_file, sheet_name='Pre Math')
