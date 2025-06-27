@@ -1,14 +1,20 @@
 import pandas as pd
-from docx import Document
-import os
+import requests
+from io import BytesIO
 
-def load_data(drive_file_url):
-	response = requests.get(drive_file_url)
-    excel_data = BytesIO(response.content)
+def load_data(google_drive_url):
+    # Make sure it's the direct download URL (not the "view" link)
+    response = requests.get(google_drive_url)
 
-    may_df = pd.read_excel(excel_file, sheet_name='May')
-    june_df = pd.read_excel(excel_file, sheet_name='June')
-    desc_df = pd.read_excel(excel_file, sheet_name='Pre Math')
+    if response.status_code != 200:
+        raise Exception("Failed to download file from Google Drive")
+
+    file_data = BytesIO(response.content)
+
+    may_df = pd.read_excel(file_data, sheet_name='May Levels')
+    june_df = pd.read_excel(file_data, sheet_name='June Levels')
+    desc_df = pd.read_excel(file_data, sheet_name='Pre Math Descriptions')
+
     return may_df, june_df, desc_df
 
 def generate_pre_math_narrative(level_may, level_june, desc_df):
