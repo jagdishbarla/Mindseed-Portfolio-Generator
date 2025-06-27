@@ -2,6 +2,7 @@ import pandas as pd
 import requests
 from io import BytesIO
 from docx import Document
+import os
 
 def load_data(google_drive_url):
     # Make sure it's the direct download URL (not the "view" link)
