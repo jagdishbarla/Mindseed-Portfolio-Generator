@@ -8,7 +8,7 @@ st.set_page_config(page_title="Child Portfolio Generator", layout="centered")
 st.title("📚 Monthly Learning Portfolio Generator")
 
 # Direct download URL from Google Drive
-drive_url = "https://drive.google.com/uc?export=download&id=15VsfeQMxrozmlcwjsBBqlQXYl_LTiVTm"
+drive_url = "https://drive.google.com/uc?export=download&id=1V3dFqK5RHGe9DU1-PH1T32wO1GOydCh-"
 
 if drive_url:
     # Load data
