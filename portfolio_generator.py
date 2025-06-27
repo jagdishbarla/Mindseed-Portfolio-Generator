@@ -11,9 +11,9 @@ def load_data(google_drive_url):
 
     file_data = BytesIO(response.content)
 
-    may_df = pd.read_excel(file_data, sheet_name='May Levels')
-    june_df = pd.read_excel(file_data, sheet_name='June Levels')
-    desc_df = pd.read_excel(file_data, sheet_name='Pre Math Descriptions')
+    may_df = pd.read_excel(file_data, sheet_name='May')
+    june_df = pd.read_excel(file_data, sheet_name='June')
+    desc_df = pd.read_excel(file_data, sheet_name='Pre Math')
 
     return may_df, june_df, desc_df
 
